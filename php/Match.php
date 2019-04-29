@@ -44,6 +44,9 @@ class Match
         try {
             $query = "SELECT * FROM `match` ORDER BY `id` DESC LIMIT 1";
             $result = $this->conn->read($query);
+            if($result == false){
+                return null;
+            }
             return $this->mapMatch($result);
         }catch (Exception $e){
             return null;

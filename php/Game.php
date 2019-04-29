@@ -38,7 +38,7 @@ class Game
             http_response_code(200);
             $data = (array)$match;
         }else{
-            $data = "";
+            $data = "NO_RESULT";
             http_response_code(500);
         }
 
