@@ -6,7 +6,7 @@
  * Time: 9:29 AM
  */
 
-class DataConn
+class DbConn
 {
     private $host = "localhost";
     private $post = "8089";
@@ -15,7 +15,7 @@ class DataConn
     private $db = "tictactoe";
     private $charset = "utf8mb4";
 
-    private $conn;
+    private $conn = null;
     private $dsn;
     private $options = [
         PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
@@ -34,4 +34,23 @@ class DataConn
         }
     }
 
+    public function getConnection() {
+        return $this->conn;
+    }
+    
+    public function insert($data, $stmt){
+        
+    }
+    
+    public function update($data, $stmt){
+        
+    }
+    
+    public function read($stmt){
+        
+    }
+    
+    public function delete($stmt){
+        
+    }
 }
