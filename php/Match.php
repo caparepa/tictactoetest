@@ -9,4 +9,9 @@
 class Match
 {
 
+    private $matchBoard;
+    private $currentMove;
+    private $previousMove;
+
+
 }

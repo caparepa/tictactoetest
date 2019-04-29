@@ -8,5 +8,15 @@
 
 class Player
 {
+    private $playerId;
+    private $isPlayerTurn;
+
+    public function __construct()
+    {
+    }
+
+    public function getCurrentPlayer(){
+
+    }
 
 }

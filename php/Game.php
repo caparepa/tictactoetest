@@ -8,5 +8,10 @@
 
 class Game
 {
+    private $board;
+
+    public function checkWin() {
+
+    }
 
 }
