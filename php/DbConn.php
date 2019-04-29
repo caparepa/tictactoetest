@@ -15,7 +15,7 @@ class DbConn
     private $db = "tictactoe";
     private $charset = "utf8mb4";
 
-    private $conn = null;
+    private $pdo = null;
     private $dsn;
     private $options = [
         PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
@@ -28,14 +28,14 @@ class DbConn
         $this->dsn = "mysql:host=$this->host;dbname=$this->db;charset=$this->charset";
 
         try {
-            $this->conn = new PDO($this->dsn, $this->user, $this->password, $this->options);
+            $this->pdo = new PDO($this->dsn, $this->user, $this->password, $this->options);
         } catch (\PDOException $e) {
             throw new \PDOException($e->getMessage(), (int)$e->getCode());
         }
     }
 
     public function getConnection() {
-        return $this->conn;
+        return $this->pdo;
     }
     
     public function insert($stmt, $data){
@@ -47,7 +47,7 @@ class DbConn
     }
     
     public function read($stmt){
-        return $this->conn->query($stmt);
+        return $this->pdo->query($stmt)->fetch(PDO::FETCH_ASSOC);
     }
     
     public function delete($stmt){

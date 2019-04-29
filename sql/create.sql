@@ -1,18 +1,18 @@
 CREATE TABLE `match`
 (
-  `id`           BIGINT(20) UNSIGNED NOT NULL,
-  `match_round`  BIGINT(20) UNSIGNED NOT NULL,
-  `match_status` BIT(1)              NULL DEFAULT NULL,
-  `match_winner` CHAR(1)             NULL DEFAULT NULL,
-  `cell_a0`      CHAR(1)             NULL DEFAULT NULL,
-  `cell_a1`      CHAR(1)             NULL DEFAULT NULL,
-  `cell_a2`      CHAR(1)             NULL DEFAULT NULL,
-  `cell_b0`      CHAR(1)             NULL DEFAULT NULL,
-  `cell_b1`      CHAR(1)             NULL DEFAULT NULL,
-  `cell_b2`      CHAR(1)             NULL DEFAULT NULL,
-  `cell_c0`      CHAR(1)             NULL DEFAULT NULL,
-  `cell_c1`      CHAR(1)             NULL DEFAULT NULL,
-  `cell_c2`      CHAR(1)             NULL DEFAULT NULL,
+  `id`           bigint(20) unsigned NOT NULL,
+  `match_round`  bigint(20) unsigned NOT NULL,
+  `match_status` bit(1)  DEFAULT NULL,
+  `match_winner` char(1) DEFAULT NULL,
+  `cell_a1`      char(1) DEFAULT NULL,
+  `cell_a2`      char(1) DEFAULT NULL,
+  `cell_a3`      char(1) DEFAULT NULL,
+  `cell_b1`      char(1) DEFAULT NULL,
+  `cell_b2`      char(1) DEFAULT NULL,
+  `cell_b3`      char(1) DEFAULT NULL,
+  `cell_c1`      char(1) DEFAULT NULL,
+  `cell_c2`      char(1) DEFAULT NULL,
+  `cell_c3`      char(1) DEFAULT NULL,
   PRIMARY KEY (`id`)
 )
   COLLATE = 'latin1_swedish_ci'
