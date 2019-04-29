@@ -6,11 +6,27 @@
  * Time: 9:21 AM
  */
 
+require_once 'DbConn.php';
+
 class Game
 {
-    private $board;
 
-    public function checkWin() {
+    private $ttt;
+
+    public function __construct()
+    {
+        $this->ttt = new TicTacToe();
+    }
+
+    public function showBoard() {
+
+    }
+
+    public function getLatestMatch() {
+        $this->ttt->getLatestMatch();
+    }
+
+    public function updateLatestMatch() {
 
     }
 

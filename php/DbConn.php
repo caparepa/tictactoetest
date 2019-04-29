@@ -23,7 +23,7 @@ class DbConn
         PDO::ATTR_EMULATE_PREPARES => false,
     ];
 
-    private function __construct()
+    public function __construct()
     {
         $this->dsn = "mysql:host=$this->host;dbname=$this->db;charset=$this->charset";
 
@@ -38,16 +38,16 @@ class DbConn
         return $this->conn;
     }
     
-    public function insert($data, $stmt){
+    public function insert($stmt, $data){
         
     }
     
-    public function update($data, $stmt){
+    public function update($stmt, $data){
         
     }
     
     public function read($stmt){
-        
+        return $this->conn->query($stmt);
     }
     
     public function delete($stmt){
