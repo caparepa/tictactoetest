@@ -42,12 +42,26 @@ class Match
     public function getLatestMatch()
     {
         try {
-            $query = "SELECT * FROM `match` ORDER BY `id` DESC LIMIT 1";
+            $query = 'SELECT * FROM `match` ORDER BY `id` DESC LIMIT 1';
             $result = $this->conn->read($query);
-            if($result == false){
-                return null;
+            if($result !== false){
+                return $this->mapMatch($result);
             }
-            return $this->mapMatch($result);
+            return null;
+        }catch (Exception $e){
+            return null;
+        }
+    }
+
+    public function getMatchById($id) {
+        try {
+            $query = 'SELECT * FROM `match` WHERE `id`=' .$id. ';';
+            $result = $this->conn->read($query);
+            if($result !== false){
+                return $this->mapMatch($result);
+            }
+            return null;
+
         }catch (Exception $e){
             return null;
         }
@@ -64,6 +78,9 @@ class Match
     public function saveMatch($data) {
         $query = $this->conn->buildInsertQuery("match", $data);
         $result = $this->conn->insert($query);
+        if($result !== null){
+            return $this->getMatchById($result);
+        }
         return $result;
     }
 }
