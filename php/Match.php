@@ -63,6 +63,7 @@ class Match
 
     public function saveMatch($data) {
         $query = $this->conn->buildInsertQuery("match", $data);
-        var_dump($query);die();
+        $result = $this->conn->insert($query);
+        return $result;
     }
 }

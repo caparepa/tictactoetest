@@ -69,7 +69,7 @@ class Game
             $data["cell_c2"] = $_POST['cell_c2'];
             $data["cell_c3"] = $_POST['cell_c3'];
 
-            $this->match->saveMatch($data);
+            return $this->match->saveMatch($data);
         }
     }
 

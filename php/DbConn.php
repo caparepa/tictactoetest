@@ -63,11 +63,19 @@ class DbConn
         return $this->pdo;
     }
 
-    public function insert($table, $data)
+    public function insert($query)
     {
-        $query = $this->buildInsertQuery($table, $data);
-        var_dump($query);
-        die();
+        try {
+            $stmt = $this->pdo->prepare($query);
+            $this->pdo->beginTransaction();
+            $stmt->execute();
+            $id = print $this->pdo->lastInsertId();
+            $this->pdo->commit();
+            return $id;
+        }catch(Exception $e) {
+            $this->pdo->rollback();
+            return null;
+        }
     }
 
     public function update($stmt, $data)

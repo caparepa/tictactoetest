@@ -109,8 +109,8 @@ $(document).ready(function () {
         $("#p_a3").text("");
         $("#p_b3").text("");
         $("#p_c3").text("");
-        $("#jugador_a_turno").text("X");
-        $("#numero_turno").text("0");
+        $("#current_player").text("X");
+        $("#current_round").text("0");
 
         //FORMULARIO
         $('input[name="cell_a1"]').val('');
