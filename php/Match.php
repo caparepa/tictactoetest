@@ -61,7 +61,7 @@ class Match
 
     }
 
-    public function saveMatch($stdObj) {
+    public function saveMatch($data) {
 
     }
 }

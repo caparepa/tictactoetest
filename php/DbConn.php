@@ -34,12 +34,32 @@ class DbConn
         }
     }
 
+    public function buildInsertQuery($table, $data) {
+        $column_array = array_keys($data);
+        $values_array = array_values($data);
+
+        $column_statement = "(";
+        foreach ($column_array as $column){
+            $column_statement .= " ".$column .",";
+        }
+        $columns = substr($column_statement, 0, -1).")";
+
+        $values_statement = "(";
+        foreach ($values_array as $value){
+            $values_statement.= " ".$value.",";
+        }
+        $values = substr($column_statement, 0, -1).")";
+
+        return "INSERT INTO ".$table." ".$column_statement." VALUES ".$values_statement.";";
+    }
+
     public function getConnection() {
         return $this->pdo;
     }
     
-    public function insert($stmt, $data){
-        
+    public function insert($table, $data){
+        $query = $this->buildInsertQuery($table, $data);
+        var_dump($query);die();
     }
     
     public function update($stmt, $data){

@@ -53,10 +53,10 @@ class Game
 
     public function createMatch() {
         $method = $_SERVER['REQUEST_METHOD'];
-
         if($method === 'POST') {
-            $obj = new stdClass();
-            $newMatch = new Match();
+            var_dump($_POST);die();
+
+            $this->match->saveMatch($data);
         }
     }
 

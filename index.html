@@ -45,7 +45,7 @@
                 </tr>
                 <tr>
                     <td id="jugador_a_turno">X</td>
-                    <td id="numero_turno">10</td>
+                    <td id="match_round">10</td>
                 </tr>
             </table>
         </div>
@@ -53,77 +53,73 @@
         <div style="height: 10px"></div>
 
         <div id="tablero">
-            <table id="tictactoe_table" style="width:200px">
-                <tr style="height: 50px">
-                    <td id="cell_a1">
-                        <div>
-                            <p id="cell_a1_value">
-                                X
-                            </p>
-                        </div>
-                    </td>
-                    <td id="cell_b1">
-                        <div>
-                            <p id="cell_b1_value">
-                                X
-                            </p>
-                        </div>
-                    </td>
-                    <td id="cell_c1">
-                        <div>
-                            <p id="cell_c1_value">
-                                X
-                            </p>
-                        </div>
-                    </td>
-                </tr>
-                <tr style="height: 50px">
-                    <td id="cell_a2">
-                        <div>
-                            <p id="cell_a2_value">
-                                X
-                            </p>
-                        </div>
-                    </td>
-                    <td id="cell_b2">
-                        <div>
-                            <p id="cell_b2_value">
-                                X
-                            </p>
-                        </div>
-                    </td>
-                    <td id="cell_c2">
-                        <div>
-                            <p id="cell_c2_value">
-                                X
-                            </p>
-                        </div>
-                    </td>
-                </tr>
-                <tr style="height: 50px">
-                    <td id="cell_a3">
-                        <div>
-                            <p id="cell_a3_value">
-                                X
-                            </p>
-                        </div>
-                    </td>
-                    <td id="cell_b3">
-                        <div>
-                            <p id="cell_b3_value">
-                                X
-                            </p>
-                        </div>
-                    </td>
-                    <td id="cell_c3">
-                        <div>
-                            <p id="cell_c3_value">
-                                X
-                            </p>
-                        </div>
-                    </td>
-                </tr>
-            </table>
+            <form id="#table_form">
+                <input type="hidden" name="match_round" value=""/>
+                <input type="hidden" name="match_status" value=""/>
+                <input type="hidden" name="match_winner" value=""/>
+                <table id="tictactoe_table" style="width:200px">
+                    <tr style="height: 50px">
+                        <td id="td_a1">
+                            <div>
+                                <input type="hidden" name="cell_a1" value="X"/>
+                                <p id="p_a1">X</p>
+                            </div>
+                        </td>
+                        <td id="td_b1">
+                            <div>
+                                <input type="hidden" name="cell_b1" value="O"/>
+                                <p id="p_b1">X</p>
+                            </div>
+                        </td>
+                        <td id="td_c1">
+                            <div>
+                                <input type="hidden" name="cell_c1" value="X"/>
+                                <p id="p_c1">X</p>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr style="height: 50px">
+                        <td id="td_a2">
+                            <div>
+                                <input type="hidden" name="cell_a2" value="X"/>
+                                <p id="p_a2">X</p>
+                            </div>
+                        </td>
+                        <td id="td_b2">
+                            <div>
+                                <input type="hidden" name="cell_b2" value="X"/>
+                                <p id="p_b2">X</p>
+                            </div>
+                        </td>
+                        <td id="td_c2">
+                            <div>
+                                <input type="hidden" name="cell_c2" value="O"/>
+                                <p id="p_c2">X</p>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr style="height: 50px">
+                        <td id="td_a3">
+                            <div>
+                                <input type="hidden" name="cell_a3" value="X"/>
+                                <p id="p_a3">X</p>
+                            </div>
+                        </td>
+                        <td id="td_b3">
+                            <div>
+                                <input type="hidden" name="cell_b3" value="O"/>
+                                <p id="p_b3">X</p>
+                            </div>
+                        </td>
+                        <td id="td_c3">
+                            <div>
+                                <input type="hidden" name="cell_c3" value="O"/>
+                                <p id="p_c3">X</p>
+                            </div>
+                        </td>
+                    </tr>
+                </table>
+            </form>
         </div>
     </div>
 
