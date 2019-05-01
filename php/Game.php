@@ -71,6 +71,8 @@ class Game
 
             return $this->match->saveMatch($data);
         }
+
+        return null;
     }
 
     public function updateMatch($matchId) {
