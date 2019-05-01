@@ -13,6 +13,9 @@ class TicTacToe
 
     private $match;
 
+    //MATCH STATUS: DRAW, IN_PROGRESS, FINISH, CANCEL
+    //MATCH WINNER: X, O, D, N, C
+
     public $spaces = array(
         'A1' => null,
         'B1' => null,
