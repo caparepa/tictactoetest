@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tic Tac Toe</title>
+    <style>
+        table, th, td {
+            border: 1px solid black;
+        }
+
+        td {
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+<div id="myDiv" name="myDiv" title="Example Div Element">
+    <h3>Tic Tac Toe (Tres en raya)</h3>
+    <h4>Instrucciones:</h4>
+    <ul>
+        <li>Dos jugadores en el mismo ordenador</li>
+        <li>Al hacer click en una de las celdas, se asignara X u O, dependiendo del jugador en turno.</li>
+
+    </ul>
+    <p>Here's another content article right here.</p>
+</div>
+<div>
+    Game
+</div>
+<div>
+    <div style="margin-left: 50px">
+
+        <div style="width:200px">
+            <button id="btn_new_game">Click para crear un juego nuevo!</button>
+        </div>
+
+        <div style="height: 10px"></div>
+
+        <div id="jugadores">
+
+            <table id="jugadores_table" style="width:200px">
+                <tr>
+                    <th>Jugador</th>
+                    <th>Turno</th>
+                </tr>
+                <tr>
+                    <td id="jugador_a_turno">X</td>
+                    <td id="match_round">10</td>
+                </tr>
+            </table>
+        </div>
+
+        <div style="height: 10px"></div>
+
+        <div id="tablero">
+            <form id="#table_form">
+                <input id="round" type="hidden" name="match_round" value="0"/>
+                <input id="status" type="hidden" name="match_status" value="IN_PROGRESS"/>
+                <input id="winner" type="hidden" name="match_winner" value="N"/>
+                <table id="tictactoe_table" style="width:200px">
+                    <tr style="height: 50px">
+                        <td id="td_a1">
+                            <div>
+                                <input type="hidden" name="cell_a1" value=""/>
+                                <p id="p_a1">X</p>
+                            </div>
+                        </td>
+                        <td id="td_b1">
+                            <div>
+                                <input type="hidden" name="cell_b1" value=""/>
+                                <p id="p_b1">X</p>
+                            </div>
+                        </td>
+                        <td id="td_c1">
+                            <div>
+                                <input type="hidden" name="cell_c1" value=""/>
+                                <p id="p_c1">X</p>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr style="height: 50px">
+                        <td id="td_a2">
+                            <div>
+                                <input type="hidden" name="cell_a2" value=""/>
+                                <p id="p_a2">X</p>
+                            </div>
+                        </td>
+                        <td id="td_b2">
+                            <div>
+                                <input type="hidden" name="cell_b2" value=""/>
+                                <p id="p_b2">X</p>
+                            </div>
+                        </td>
+                        <td id="td_c2">
+                            <div>
+                                <input type="hidden" name="cell_c2" value=""/>
+                                <p id="p_c2">X</p>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr style="height: 50px">
+                        <td id="td_a3">
+                            <div>
+                                <input type="hidden" name="cell_a3" value=""/>
+                                <p id="p_a3">X</p>
+                            </div>
+                        </td>
+                        <td id="td_b3">
+                            <div>
+                                <input type="hidden" name="cell_b3" value=""/>
+                                <p id="p_b3">X</p>
+                            </div>
+                        </td>
+                        <td id="td_c3">
+                            <div>
+                                <input type="hidden" name="cell_c3" value=""/>
+                                <p id="p_c3">X</p>
+                            </div>
+                        </td>
+                    </tr>
+                </table>
+            </form>
+        </div>
+    </div>
+
+</div>
+</body>
+<script src="http://code.jquery.com/jquery-1.10.2.js"></script>
+<script type="text/javascript" src="js/main.js"></script>
+</html>
