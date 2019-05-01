@@ -28,79 +28,107 @@
     Game
 </div>
 <div>
-    <table id="tictactoe_table" style="width:150px">
-        <tr style="height: 50px">
-            <td id="cell_a1">
-                <div>
-                    <p id="cell_a1_value">
-                        X
-                    </p>
-                </div>
-            </td>
-            <td id="cell_b1">
-                <div>
-                    <p id="cell_b1_value">
-                        X
-                    </p>
-                </div>
-            </td>
-            <td id="cell_c1">
-                <div>
-                    <p id="cell_c1_value">
-                        X
-                    </p>
-                </div>
-            </td>
-        </tr>
-        <tr style="height: 50px">
-            <td id="cell_a2">
-                <div>
-                    <p id="cell_a2_value">
-                        X
-                    </p>
-                </div>
-            </td>
-            <td id="cell_b2">
-                <div>
-                    <p id="cell_b2_value">
-                        X
-                    </p>
-                </div>
-            </td>
-            <td id="cell_c2">
-                <div>
-                    <p id="cell_c2_value">
-                        X
-                    </p>
-                </div>
-            </td>
-        </tr>
-        <tr style="height: 50px">
-            <td id="cell_a3">
-                <div>
-                    <p id="cell_a3_value">
-                        X
-                    </p>
-                </div>
-            </td>
-            <td id="cell_b3">
-                <div>
-                    <p id="cell_b3_value">
-                        X
-                    </p>
-                </div>
-            </td>
-            <td id="cell_c3">
-                <div>
-                    <p id="cell_c3_value">
-                        X
-                    </p>
-                </div>
-            </td>
-        </tr>
-    </table>
+    <div style="margin-left: 50px">
+
+        <div style="width:200px">
+            <button id="btn_new_game">Click para crear un juego nuevo!</button>
+        </div>
+
+        <div style="height: 10px"></div>
+
+        <div id="jugadores">
+
+            <table id="jugadores_table" style="width:200px">
+                <tr>
+                    <th>Jugador</th>
+                    <th>Turno</th>
+                </tr>
+                <tr>
+                    <td id="jugador_a_turno">X</td>
+                    <td id="numero_turno">10</td>
+                </tr>
+            </table>
+        </div>
+
+        <div style="height: 10px"></div>
+
+        <div id="tablero">
+            <table id="tictactoe_table" style="width:200px">
+                <tr style="height: 50px">
+                    <td id="cell_a1">
+                        <div>
+                            <p id="cell_a1_value">
+                                X
+                            </p>
+                        </div>
+                    </td>
+                    <td id="cell_b1">
+                        <div>
+                            <p id="cell_b1_value">
+                                X
+                            </p>
+                        </div>
+                    </td>
+                    <td id="cell_c1">
+                        <div>
+                            <p id="cell_c1_value">
+                                X
+                            </p>
+                        </div>
+                    </td>
+                </tr>
+                <tr style="height: 50px">
+                    <td id="cell_a2">
+                        <div>
+                            <p id="cell_a2_value">
+                                X
+                            </p>
+                        </div>
+                    </td>
+                    <td id="cell_b2">
+                        <div>
+                            <p id="cell_b2_value">
+                                X
+                            </p>
+                        </div>
+                    </td>
+                    <td id="cell_c2">
+                        <div>
+                            <p id="cell_c2_value">
+                                X
+                            </p>
+                        </div>
+                    </td>
+                </tr>
+                <tr style="height: 50px">
+                    <td id="cell_a3">
+                        <div>
+                            <p id="cell_a3_value">
+                                X
+                            </p>
+                        </div>
+                    </td>
+                    <td id="cell_b3">
+                        <div>
+                            <p id="cell_b3_value">
+                                X
+                            </p>
+                        </div>
+                    </td>
+                    <td id="cell_c3">
+                        <div>
+                            <p id="cell_c3_value">
+                                X
+                            </p>
+                        </div>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+
 </div>
 </body>
 <script src="http://code.jquery.com/jquery-1.10.2.js"></script>
-<script  type="text/javascript" src="js/main.js"></script>
+<script type="text/javascript" src="js/main.js"></script>
 </html>

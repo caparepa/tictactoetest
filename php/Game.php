@@ -51,7 +51,7 @@ class Game
 
     }
 
-    public function saveMatch() {
+    public function createMatch() {
         $method = $_SERVER['REQUEST_METHOD'];
 
         if($method === 'POST') {
