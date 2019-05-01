@@ -33,8 +33,7 @@ class Game
         $match = $this->match->getLatestMatch();
 
         //TODO: validate whether match is empty/null or not!
-
-        if($match != null){
+        if($match !== null){
             http_response_code(200);
             $data = (array)$match;
         }else{
@@ -42,7 +41,6 @@ class Game
             http_response_code(500);
         }
 
-        header("Content-Type: application/json");
         return json_encode($data);
     }
 
