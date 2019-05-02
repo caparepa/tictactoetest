@@ -10,8 +10,8 @@ class DbConn
 {
     private $host = "localhost";
     private $post = "8089";
-    private $user = "root";
-    private $password = "";
+    private $user = "user";
+    private $password = "password";
     private $db = "tictactoe";
     private $charset = "utf8mb4";
 
@@ -69,7 +69,7 @@ class DbConn
             $stmt = $this->pdo->prepare($query);
             $this->pdo->beginTransaction();
             $stmt->execute();
-            $id = print $this->pdo->lastInsertId();
+            $id = $this->pdo->lastInsertId();
             $this->pdo->commit();
             return $id;
         }catch(Exception $e) {
