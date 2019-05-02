@@ -53,6 +53,7 @@ $(document).ready(function () {
         $.ajax({
             type: "GET",
             url: "get_match.php",
+            dataType: 'json',
             success: function (data) {
                 console.log("success")
                 console.log(data)
@@ -68,32 +69,17 @@ $(document).ready(function () {
 
     }
 
-    function getFormData($form){
-        var unindexed_array = $form.serializeArray();
-        var indexed_array = {};
-
-        $.map(unindexed_array, function(n, i){
-            indexed_array[n['name']] = n['value'];
-        });
-
-        return indexed_array;
-    }
-
     function newGame() {
-        var formData = $("form").serialize();
-        var ledata = getFormData($("form"));
-        console.log(ledata);
         $.ajax({
             type: "POST",
             url: "new_game.php",
+            dataType: ' json',
             data: $("form").serialize(),
             success: function (data) {
-                console.log("success");
-                console.log(data)
+                console.log("success", data)
             },
             error: function (error) {
-                console.log("error");
-                console.log(error)
+                console.log("error", error)
             }
         });
     }
