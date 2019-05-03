@@ -50,8 +50,10 @@
         </div>
 
         <div style="height: 10px"></div>
-        <h3>Ganador:</h3>
-        <p id="winner_h"></p>
+        <div id="winner_div" hidden>
+            <h3>Ganador:</h3>
+            <p id="winner_h">N</p>
+        </div>
         <div style="height: 10px"></div>
 
 
@@ -64,19 +66,19 @@
                 <input id="cplayer" type="hidden" name="current_player" value="X"/>
                 <table id="tictactoe_table" style="width:200px">
                     <tr style="height: 50px">
-                        <td id="td_a1">
+                        <td id="td_a1" class="stop">
                             <div>
                                 <input type="hidden" name="cell_a1" value=""/>
                                 <p id="p_a1">X</p>
                             </div>
                         </td>
-                        <td id="td_b1">
+                        <td id="td_b1" class="stop">
                             <div>
                                 <input type="hidden" name="cell_b1" value=""/>
                                 <p id="p_b1">X</p>
                             </div>
                         </td>
-                        <td id="td_c1">
+                        <td id="td_c1" class="stop">
                             <div>
                                 <input type="hidden" name="cell_c1" value=""/>
                                 <p id="p_c1">X</p>
@@ -84,19 +86,19 @@
                         </td>
                     </tr>
                     <tr style="height: 50px">
-                        <td id="td_a2">
+                        <td id="td_a2" class="stop">
                             <div>
                                 <input type="hidden" name="cell_a2" value=""/>
                                 <p id="p_a2">X</p>
                             </div>
                         </td>
-                        <td id="td_b2">
+                        <td id="td_b2" class="stop">
                             <div>
                                 <input type="hidden" name="cell_b2" value=""/>
                                 <p id="p_b2">X</p>
                             </div>
                         </td>
-                        <td id="td_c2">
+                        <td id="td_c2" class="stop">
                             <div>
                                 <input type="hidden" name="cell_c2" value=""/>
                                 <p id="p_c2">X</p>
@@ -104,19 +106,19 @@
                         </td>
                     </tr>
                     <tr style="height: 50px">
-                        <td id="td_a3">
+                        <td id="td_a3" class="stop">
                             <div>
                                 <input type="hidden" name="cell_a3" value=""/>
                                 <p id="p_a3">X</p>
                             </div>
                         </td>
-                        <td id="td_b3">
+                        <td id="td_b3" class="stop">
                             <div>
                                 <input type="hidden" name="cell_b3" value=""/>
                                 <p id="p_b3">X</p>
                             </div>
                         </td>
-                        <td id="td_c3">
+                        <td id="td_c3" class="stop">
                             <div>
                                 <input type="hidden" name="cell_c3" value=""/>
                                 <p id="p_c3">X</p>

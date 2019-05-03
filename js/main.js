@@ -4,7 +4,7 @@ $(document).ready(function () {
 
     $("#td_a1").on('click', function () {
 
-        if($("#p_a1").text() === ''){
+        if($("#p_a1").text() === '' && $("#winner_h").text() === 'N'){
 
             var player = $('input[name="current_player"]').val();
             $("#p_a1").text(player)
@@ -16,7 +16,7 @@ $(document).ready(function () {
     });
 
     $("#td_a2").on('click', function () {
-        if($("#p_a2").text() === ''){
+        if($("#p_a2").text() === '' && $("#winner_h").text() === 'N'){
 
             var player = $('input[name="current_player"]').val();
             $("#p_a2").text(player)
@@ -27,7 +27,7 @@ $(document).ready(function () {
     });
 
     $("#td_a3").on('click', function () {
-        if($("#p_a3").text() === ''){
+        if($("#p_a3").text() === '' && $("#winner_h").text() === 'N'){
 
             var player = $('input[name="current_player"]').val();
             $("#p_a3").text(player)
@@ -38,7 +38,7 @@ $(document).ready(function () {
     });
 
     $("#td_b1").on('click', function () {
-        if($("#p_b1").text() === ''){
+        if($("#p_b1").text() === '' && $("#winner_h").text() === 'N'){
 
             var player = $('input[name="current_player"]').val();
             $("#p_b1").text(player)
@@ -49,7 +49,7 @@ $(document).ready(function () {
     });
 
     $("#td_b2").on('click', function () {
-        if($("#p_b2").text() === ''){
+        if($("#p_b2").text() === '' && $("#winner_h").text() === 'N'){
 
             var player = $('input[name="current_player"]').val();
             $("#p_b2").text(player)
@@ -60,7 +60,7 @@ $(document).ready(function () {
     });
 
     $("#td_b3").on('click', function () {
-        if($("#p_b3").text() === ''){
+        if($("#p_b3").text() === '' && $("#winner_h").text() === 'N'){
 
             var player = $('input[name="current_player"]').val();
             $("#p_b3").text(player)
@@ -71,7 +71,7 @@ $(document).ready(function () {
     });
 
     $("#td_c1").on('click', function () {
-        if($("#p_c1").text() === ''){
+        if($("#p_c1").text() === '' && $("#winner_h").text() === 'N'){
 
             var player = $('input[name="current_player"]').val();
             $("#p_c1").text(player)
@@ -82,7 +82,7 @@ $(document).ready(function () {
     });
 
     $("#td_c2").on('click', function () {
-        if($("#p_c2").text() === ''){
+        if($("#p_c2").text() === '' && $("#winner_h").text() === 'N'){
 
             var player = $('input[name="current_player"]').val();
             $("#p_c2").text(player)
@@ -93,7 +93,7 @@ $(document).ready(function () {
     });
 
     $("#td_c3").on('click', function () {
-        if($("#p_c3").text() === ''){
+        if($("#p_c3").text() === '' && $("#winner_h").text() === 'N'){
 
             var player = $('input[name="current_player"]').val();
             $("#p_c3").text(player)
@@ -121,7 +121,14 @@ $(document).ready(function () {
         $("#p_c3").text(data.cell_c3);
         $("#current_player").text(data.current_player);
         $("#current_round").text(data.match_round);
-        $("#winner_h").text(data.match_winner);
+        if(data.match_winner !== 'N'){
+            $("#winner_h").text(data.match_winner);
+            $("#winner_div").show();
+        }
+        if(data.match_winner === 'N' && data.match_round === 10){
+            $("#winner_h").text("EMPATE");
+            $("#winner_div").show();
+        }
 
         //FORMULARIO
         $('input[name="cell_a1"]').val(data.cell_a1);
@@ -186,6 +193,7 @@ $(document).ready(function () {
             success: function (data) {
                 if(data != null){
                     fillMatchData(data);
+                    console.log(data.match_winner);
                 }else {
                     alert("ERROR!")
                 }
@@ -198,6 +206,11 @@ $(document).ready(function () {
     }
 
     function clearBoard() {
+
+        //ocultar y/o borrar
+        $("#winner_div").hide();
+        $("#winner_h").text("N");
+
         //CELDAS
         $("#p_a1").text("");
         $("#p_b1").text("");
