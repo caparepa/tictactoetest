@@ -6,39 +6,95 @@ $(document).ready(function () {
     }
 
     $("#td_a1").on('click', function () {
-        clickCell($("#p_a1").text(), $('input[name="cell_a1"]'));
+
+        if($('input[name="cell_a1"]').val() === ''){
+
+            var player = $('input[name="current_player"]').val();
+            $("#td_a1").text(player)
+            $('input[name="cell_a1"]').val(player);
+            //llamar al api aqui
+        }
+
     });
 
     $("#td_a2").on('click', function () {
-        clickCell($("#p_a2").text(), $('input[name="cell_b1"]'));
+        if($('input[name="cell_a2"]').val() === ''){
+
+            var player = $('input[name="current_player"]').val();
+            $("#td_a2").text(player)
+            $('input[name="cell_a2"]').val(player);
+            //llamar al api aqui
+        }
     });
 
     $("#td_a3").on('click', function () {
-        clickCell($("#p_a3").text(), $('input[name="cell_c1"]'));
+        if($('input[name="cell_a3"]').val() === ''){
+
+            var player = $('input[name="current_player"]').val();
+            $("#td_a3").text(player)
+            $('input[name="cell_a3"]').val(player);
+            //llamar al api aqui
+        }
     });
 
     $("#td_b1").on('click', function () {
-        clickCell($("#p_b1").text(), $('input[name="cell_a2"]'));
+        if($('input[name="cell_b1"]').val() === ''){
+
+            var player = $('input[name="current_player"]').val();
+            $("#td_b1").text(player)
+            $('input[name="cell_b1"]').val(player);
+            //llamar al api aqui
+        }
     });
 
     $("#td_b2").on('click', function () {
-        clickCell($("#p_b2").text(), $('input[name="cell_b2"]'));
+        if($('input[name="cell_b2"]').val() === ''){
+
+            var player = $('input[name="current_player"]').val();
+            $("#td_b2").text(player)
+            $('input[name="cell_b2"]').val(player);
+            //llamar al api aqui
+        }
     });
 
     $("#td_b3").on('click', function () {
-        clickCell($("#p_b3").text(), $('input[name="cell_c2"]'));
+        if($('input[name="cell_b3"]').val() === ''){
+
+            var player = $('input[name="current_player"]').val();
+            $("#td_b3").text(player)
+            $('input[name="cell_b3"]').val(player);
+            //llamar al api aqui
+        }
     });
 
     $("#td_c1").on('click', function () {
-        clickCell($("#p_c1").text(), $('input[name="cell_a3"]'));
+        if($('input[name="cell_c1"]').val() === ''){
+
+            var player = $('input[name="current_player"]').val();
+            $("#td_c1").text(player)
+            $('input[name="cell_c1"]').val(player);
+            //llamar al api aqui
+        }
     });
 
     $("#td_c2").on('click', function () {
-        clickCell($("#p_c2").text(), $('input[name="cell_b3"]'));
+        if($('input[name="cell_c2"]').val() === ''){
+
+            var player = $('input[name="current_player"]').val();
+            $("#td_c2").text(player)
+            $('input[name="cell_c2"]').val(player);
+            //llamar al api aqui
+        }
     });
 
     $("#td_c3").on('click', function () {
-        clickCell($("#p_c3").text(), $('input[name="cell_c3"]'));
+        if($('input[name="cell_c3"]').val() === ''){
+
+            var player = $('input[name="current_player"]').val();
+            $("#td_c3").text(player)
+            $('input[name="cell_c3"]').val(player);
+            //llamar al api aqui
+        }
     });
 
     $("#btn_new_game").on('click', function () {
