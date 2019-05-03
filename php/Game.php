@@ -94,8 +94,8 @@ class Game
         $method = $_SERVER['REQUEST_METHOD'];
 
         if($method === 'POST') {
+            $matchId = $_POST['match_id'];
             $data = [];
-            $data['match_id'] = $_POST['match_id'];
             $data['match_round'] = $_POST['match_round'];
             $data['match_status'] = $_POST['match_status'];
             $data['match_winner'] = $_POST['match_winner'];
@@ -114,7 +114,7 @@ class Game
             $ttt = new TicTacToe($data, $data['match_round'],$data['match_winner']);
 
             //process the game
-            $ttt->processMatch($data['current_player']);
+            $ttt->processMatch($data['current_player'],$data['match_round']);
 
             //set data again
             $data['match_round'] = $ttt->turn;
@@ -123,14 +123,14 @@ class Game
             $data['current_player'] = $ttt->currentPiece;
 
             //update match
-            $match =  $this->match->updateMatch($data['match_id'],$data);
+            $match =  $this->match->updateMatch($matchId,$data);
 
             //TODO: validate whether match is empty/null or not!
             if($match !== null){
                 http_response_code(200);
                 $response = (array)$match;
             }else{
-                $response = "NO_RESULT";
+                $response = ["error" => "ERROR_UPDATING"];
                 http_response_code(500);
             }
 

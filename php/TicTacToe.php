@@ -77,18 +77,22 @@ class TicTacToe
     //check the match status: if a player occupies cells in VC, wins
     //otherwise, up the turn.
     //if turns reach 8, then it's a draw
-    public function processMatch($playerPiece)
+    public function processMatch($playerPiece, $currentTurn)
     {
+        $this->turn = $currentTurn;
         $player_occupied_spaces = $this->getCellsForPlayer($playerPiece);
+
         foreach ($this->victory_conditions as $vc) {
             if ($vc === array_intersect($vc, $player_occupied_spaces)) {
                 $this->winner = $this->players[$playerPiece];
                 $this->status = 'FINISH';
             }
         }
-        if ($this->turn === 8) {
+
+        if ($this->status == 'IN_PROGRESS' && $this->turn >= 8) {
             $this->winner = 'N'; //NONE!
             $this->status = 'DRAW'; //DRAW!
+            $this->turn++;
         }else{
             $this->currentPiece = $playerPiece === 'X' ? 'O' : 'X';
             $this->turn++;

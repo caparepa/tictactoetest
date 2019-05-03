@@ -68,7 +68,7 @@ class DbConn
 
         $setValues = substr($setValueStr, 0, -1);
 
-        $query = 'UPDATE `'.$table.'` SET '.$setValueStr.'WHERE id = '.$id;
+        $query = 'UPDATE `'.$table.'` SET '.$setValues.' WHERE `'.$table.'`.`id` = '.$id;
 
         return $query;
     }
@@ -100,12 +100,11 @@ class DbConn
             $stmt = $this->pdo->prepare($query);
             $this->pdo->beginTransaction();
             $stmt->execute();
-            $id = $this->pdo->lastInsertId();
             $this->pdo->commit();
-            return $id;
+            return true;
         }catch (Exception $e){
             $this->pdo->rollback();
-            return null;
+            return false;
         }
     }
 

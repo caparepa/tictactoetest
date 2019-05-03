@@ -147,15 +147,13 @@ $(document).ready(function () {
             dataType: 'json',
             success: function (data) {
                 if(data != null){
-                    console.log("success", data)
                     fillMatchData(data);
                 }else {
                     alert("ERROR!")
                 }
             },
             error: function (error) {
-                console.log("error")
-                console.log(error)
+                console.log(error.responseText)
             }
         });
     }
@@ -168,7 +166,6 @@ $(document).ready(function () {
             data: $("form").serialize(),
             success: function (data) {
                 if(data != null){
-                    console.log("success", data)
                     fillMatchData(data);
                 }else {
                     alert("ERROR!")
@@ -181,26 +178,23 @@ $(document).ready(function () {
     }
 
     function updateGame() {
-        console.log("DATA",$("form").serialize());
-        /*$.ajax({
+        $.ajax({
             type: "POST",
             url: "update_match.php",
             dataType: ' json',
             data: $("form").serialize(),
             success: function (data) {
                 if(data != null){
-                    console.log("success", data)
                     fillMatchData(data);
                 }else {
                     alert("ERROR!")
                 }
 
-                console.log("success", data)
             },
             error: function (error) {
-                console.log("error_", error.responseText)
+                console.log("error", error.responseText)
             }
-        });*/
+        });
     }
 
     function clearBoard() {
