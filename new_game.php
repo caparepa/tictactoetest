@@ -8,5 +8,4 @@
 require_once 'php/Game.php';
 $game = new Game();
 
-$hello = $game->createMatch();
-var_dump($hello);
+echo $game->createMatch();

@@ -8,6 +8,7 @@
 
 require_once 'DbConn.php';
 require_once 'Match.php';
+require_once 'json_utils.php';
 
 class Game
 {
@@ -69,7 +70,18 @@ class Game
             $data["cell_c2"] = $_POST['cell_c2'];
             $data["cell_c3"] = $_POST['cell_c3'];
 
-            return $this->match->saveMatch($data);
+            $match =  $this->match->saveMatch($data);
+
+            //TODO: validate whether match is empty/null or not!
+            if($match !== null){
+                http_response_code(200);
+                $response = (array)$match;
+            }else{
+                $response = "NO_RESULT";
+                http_response_code(500);
+            }
+
+            return json_encode($response);
         }
 
         return null;

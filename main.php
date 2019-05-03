@@ -9,4 +9,4 @@ require_once 'php/Game.php';
  * Time: 9:20 AM
  */
 $game = new Game();
-var_dump($game->getLatestMatch());
+$game->getLatestMatch();
