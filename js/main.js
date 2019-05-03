@@ -46,30 +46,6 @@ $(document).ready(function () {
         newGame();
     });
 
-    function post(player, cellId) {
-
-    }
-
-    function getLatestMatch() {
-        $.ajax({
-            type: "GET",
-            url: "get_match.php",
-            dataType: 'json',
-            success: function (data) {
-                if(data != null){
-                    console.log("success", data)
-                    fillMatchData(data);
-                }else {
-                    alert("ERROR!")
-                }
-            },
-            error: function (error) {
-                console.log("error")
-                console.log(error)
-            }
-        });
-    }
-
     function fillMatchData(data) {
         //CELDAS
         $("#p_a1").text(data.cell_a1);
@@ -100,6 +76,26 @@ $(document).ready(function () {
         $('input[name="match_status"]').val("IN_PROGRESS");
         $('input[name="match_winner"]').val(data.match_winner);
         $('input[name="current_player"]').val(data.current_player);
+    }
+
+    function getLatestMatch() {
+        $.ajax({
+            type: "GET",
+            url: "get_match.php",
+            dataType: 'json',
+            success: function (data) {
+                if(data != null){
+                    console.log("success", data)
+                    fillMatchData(data);
+                }else {
+                    alert("ERROR!")
+                }
+            },
+            error: function (error) {
+                console.log("error")
+                console.log(error)
+            }
+        });
     }
 
     function newGame() {
