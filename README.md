@@ -11,7 +11,6 @@ raíz. Si se utiliza un stack LAMP (en Linux), copiar el directorio en el direct
 - Correr el dump create_user.sql para crear el usuario y sus permisos para conectar la aplicación.
 - Configurar el web server para correr en localhost con la url deseada.
 
-
 # Instrucciones de juego
 
 - Si no hay partidas guardadas en base de datos, saldrá una alerta indicando que de debe crear la partida.
