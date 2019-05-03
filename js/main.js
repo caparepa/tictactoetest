@@ -2,8 +2,7 @@ $(document).ready(function () {
     function clickCell(cellContent, cellVal) {
         cellVal.val(cellContent);
         console.log(jQuery.trim(cellContent),cellVal.val());
-
-        //getLatestMatch();
+        //updateGame();
     }
 
     $("#td_a1").on('click', function () {
@@ -57,8 +56,12 @@ $(document).ready(function () {
             url: "get_match.php",
             dataType: 'json',
             success: function (data) {
-                console.log("success")
-                console.log(data)
+                if(data != null){
+                    console.log("success", data)
+                    fillMatchData(data);
+                }else {
+                    alert("ERROR!")
+                }
             },
             error: function (error) {
                 console.log("error")
@@ -92,6 +95,7 @@ $(document).ready(function () {
         $('input[name="cell_a3"]').val(data.cell_a3);
         $('input[name="cell_b3"]').val(data.cell_b3);
         $('input[name="cell_c3"]').val(data.cell_c3);
+        $('input[name="match_id"]').val(data.id);
         $('input[name="match_round"]').val(data.match_round);
         $('input[name="match_status"]').val("IN_PROGRESS");
         $('input[name="match_winner"]').val(data.match_winner);
