@@ -9,6 +9,7 @@
 require_once 'DbConn.php';
 require_once 'Match.php';
 require_once 'json_utils.php';
+require_once 'TicTacToe.php';
 
 class Game
 {
@@ -57,19 +58,19 @@ class Game
         if($method === 'POST') {
 
             $data = [];
-            $data["match_round"] = $_POST['match_round'];
-            $data["match_status"] = $_POST['match_status'];
-            $data["match_winner"] = $_POST['match_winner'];
-            $data["current_player"] = $_POST['current_player'];
-            $data["cell_a1"] = $_POST['cell_a1'];
-            $data["cell_a2"] = $_POST['cell_a2'];
-            $data["cell_a3"] = $_POST['cell_a3'];
-            $data["cell_b1"] = $_POST['cell_b1'];
-            $data["cell_b2"] = $_POST['cell_b2'];
-            $data["cell_b3"] = $_POST['cell_b3'];
-            $data["cell_c1"] = $_POST['cell_c1'];
-            $data["cell_c2"] = $_POST['cell_c2'];
-            $data["cell_c3"] = $_POST['cell_c3'];
+            $data['match_round'] = $_POST['match_round'];
+            $data['match_status'] = $_POST['match_status'];
+            $data['match_winner'] = $_POST['match_winner'];
+            $data['current_player'] = $_POST['current_player'];
+            $data['cell_a1'] = $_POST['cell_a1'];
+            $data['cell_a2'] = $_POST['cell_a2'];
+            $data['cell_a3'] = $_POST['cell_a3'];
+            $data['cell_b1'] = $_POST['cell_b1'];
+            $data['cell_b2'] = $_POST['cell_b2'];
+            $data['cell_b3'] = $_POST['cell_b3'];
+            $data['cell_c1'] = $_POST['cell_c1'];
+            $data['cell_c2'] = $_POST['cell_c2'];
+            $data['cell_c3'] = $_POST['cell_c3'];
 
             $match =  $this->match->saveMatch($data);
 
@@ -88,25 +89,35 @@ class Game
         return null;
     }
 
-    public function updateMatch($matchId) {
+    public function updateMatch() {
 
         $method = $_SERVER['REQUEST_METHOD'];
 
         if($method === 'POST') {
             $data = [];
-            $data["match_round"] = $_POST['match_round'];
-            $data["match_status"] = $_POST['match_status'];
-            $data["match_winner"] = $_POST['match_winner'];
-            $data["current_player"] = $_POST['current_player'];
-            $data["cell_a1"] = $_POST['cell_a1'];
-            $data["cell_a2"] = $_POST['cell_a2'];
-            $data["cell_a3"] = $_POST['cell_a3'];
-            $data["cell_b1"] = $_POST['cell_b1'];
-            $data["cell_b2"] = $_POST['cell_b2'];
-            $data["cell_b3"] = $_POST['cell_b3'];
-            $data["cell_c1"] = $_POST['cell_c1'];
-            $data["cell_c2"] = $_POST['cell_c2'];
-            $data["cell_c3"] = $_POST['cell_c3'];
+            $data['match_id'] = $_POST['match_id'];
+            $data['match_round'] = $_POST['match_round'];
+            $data['match_status'] = $_POST['match_status'];
+            $data['match_winner'] = $_POST['match_winner'];
+            $data['current_player'] = $_POST['current_player'];
+            $data['cell_a1'] = $_POST['cell_a1'];
+            $data['cell_a2'] = $_POST['cell_a2'];
+            $data['cell_a3'] = $_POST['cell_a3'];
+            $data['cell_b1'] = $_POST['cell_b1'];
+            $data['cell_b2'] = $_POST['cell_b2'];
+            $data['cell_b3'] = $_POST['cell_b3'];
+            $data['cell_c1'] = $_POST['cell_c1'];
+            $data['cell_c2'] = $_POST['cell_c2'];
+            $data['cell_c3'] = $_POST['cell_c3'];
+
+            //first, process the match
+            $ttt = new TicTacToe($data, $data['match_round'],$data['match_winner']);
+
+            //process the game
+            $ttt->processMatch($data['current_player']);
+
+
+
 
             $match =  $this->match->updateMatch($_POST['match_id'],$data);
 

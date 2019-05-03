@@ -40,59 +40,68 @@ class TicTacToe
     );
 
     public $players = array(
-        'X' => null,
-        'O' => null
+        'X' => 'X',
+        'O' => 'O'
     );
 
-    public $turns = 0;
-    public $winner = null;
+    public $turn = 0;
+    public $winner = 'N';
+    public $currentPiece = 'X';
+    public $status = 'IN_PROGRESS';
 
-    public function __construct()
+    public function __construct($matchData, $matchTurn, $matchWinner)
     {
+        $this->populateBoard($matchData);
+        $this->turn = $matchTurn;
+        $this->winner = $matchWinner;
     }
 
-    public function populateBoard($obj)
+    public function populateBoard($data)
     {
-        $this->spaces['A1'] = $obj[0]['cell_a1'];
-        $this->spaces['B1'] = $obj[0]['cell_b1'];
-        $this->spaces['C1'] = $obj[0]['cell_c1'];
-        $this->spaces['A2'] = $obj[0]['cell_a2'];
-        $this->spaces['B2'] = $obj[0]['cell_b2'];
-        $this->spaces['C2'] = $obj[0]['cell_c2'];
-        $this->spaces['A3'] = $obj[0]['cell_a3'];
-        $this->spaces['B3'] = $obj[0]['cell_b3'];
-        $this->spaces['C3'] = $obj[0]['cell_c3'];
+        $this->spaces['A1'] = $data['cell_a1'];
+        $this->spaces['B1'] = $data['cell_b1'];
+        $this->spaces['C1'] = $data['cell_c1'];
+        $this->spaces['A2'] = $data['cell_a2'];
+        $this->spaces['B2'] = $data['cell_b2'];
+        $this->spaces['C2'] = $data['cell_c2'];
+        $this->spaces['A3'] = $data['cell_a3'];
+        $this->spaces['B3'] = $data['cell_b3'];
+        $this->spaces['C3'] = $data['cell_c3'];
     }
 
-    function matchHasWinner() {
-        return (is_null($this->winner) ? false: true);
+    public function matchHasWinner()
+    {
+        return (!in_array($this->winner,['N','D']));
     }
 
-    public function getBoard() {
-        return $this->spaces;
-    }
-
-    public function checkWinner($piece) {
-        $player_occupied_spaces = $this->getCellsForType($piece);
-        foreach($this->victory_conditions as $vc) {
-            if ($vc == array_intersect($vc, $player_occupied_spaces)) {
-                $this->winner = $this->players[$piece];
-                // print/update the board / update shit here
-                //$victory_message = $this->winner . " is the winner!\n";
+    //check the match status: if a player occupies cells in VC, wins
+    //otherwise, up the turn.
+    //if turns reach 8, then it's a draw
+    public function processMatch($playerPiece)
+    {
+        $player_occupied_spaces = $this->getCellsForPlayer($playerPiece);
+        foreach ($this->victory_conditions as $vc) {
+            if ($vc === array_intersect($vc, $player_occupied_spaces)) {
+                $this->winner = $this->players[$playerPiece];
+                $this->status = 'FINISH';
             }
         }
-        if ($this->turns == 8) {
-            print "It's a tie!\n";
-            die();
+        if ($this->turn === 8) {
+            $this->winner = 'N'; //NONE!
+            $this->status = 'DRAW'; //DRAW!
+        }else{
+            $this->currentPiece = $playerPiece === 'X' ? 'O' : 'X';
+            $this->turn++;
         }
     }
 
     /**
-     * @param $type
+     * @param $player
      * @return array
      */
-    function getCellsForType($type) {
-        return array_keys($this->spaces, $type);
+    public function getCellsForPlayer($player)
+    {
+        return array_keys($this->spaces, $player);
     }
 
 }
