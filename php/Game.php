@@ -116,10 +116,14 @@ class Game
             //process the game
             $ttt->processMatch($data['current_player']);
 
+            //set data again
+            $data['match_round'] = $ttt->turn;
+            $data['match_status'] = $ttt->status;
+            $data['match_winner'] = $ttt->winner;
+            $data['current_player'] = $ttt->currentPiece;
 
-
-
-            $match =  $this->match->updateMatch($_POST['match_id'],$data);
+            //update match
+            $match =  $this->match->updateMatch($data['match_id'],$data);
 
             //TODO: validate whether match is empty/null or not!
             if($match !== null){
