@@ -105,6 +105,7 @@ $(document).ready(function () {
 
     $("#btn_new_game").on('click', function () {
         clearBoard();
+        $("#tablero").show();
         newGame();
     });
 
@@ -153,14 +154,19 @@ $(document).ready(function () {
             url: "get_match.php",
             dataType: 'json',
             success: function (data) {
+                console.log("data",data);
                 if(data != null){
+                    $("#tablero").show();
                     fillMatchData(data);
                 }else {
                     alert("ERROR!")
                 }
             },
             error: function (error) {
-                console.log(error.responseText)
+                console.log("error",error.responseJSON.message)
+                if(error.responseJSON.message === "NO_DATA"){
+                    alert("No hay partidas almacenadas! Crea un nuevo juego para empezar!")
+                }
             }
         });
     }
@@ -179,7 +185,10 @@ $(document).ready(function () {
                 }
             },
             error: function (error) {
-                console.log("error", error.responseText)
+                console.log("error",error.responseJSON.message)
+                if(error.responseJSON.message === "ERROR_CREATING"){
+                    alert("Error creando partida!")
+                }
             }
         });
     }
@@ -200,7 +209,10 @@ $(document).ready(function () {
 
             },
             error: function (error) {
-                console.log("error", error.responseText)
+                console.log("error",error.responseJSON.message)
+                if(error.responseJSON.message === "ERROR_UPDATING"){
+                    alert("Error actualizando partida!")
+                }
             }
         });
     }

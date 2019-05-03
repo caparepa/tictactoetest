@@ -39,18 +39,11 @@ class Game
             http_response_code(200);
             $data = (array)$match;
         }else{
-            $data = "NO_RESULT";
-            http_response_code(500);
+            $data = ["message" => "NO_DATA"];
+            http_response_code(404);
         }
 
         return json_encode($data);
-    }
-
-    /**
-     * ???
-     */
-    public function getCurrentMatch() {
-
     }
 
     public function createMatch() {
@@ -79,7 +72,7 @@ class Game
                 http_response_code(200);
                 $response = (array)$match;
             }else{
-                $response = "NO_RESULT";
+                $data = ["message" => "ERROR_CREATING"];
                 http_response_code(500);
             }
 
