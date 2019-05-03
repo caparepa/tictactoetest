@@ -5,8 +5,8 @@ El desarrollo fue hecho en Windows, usando Laragon como web server.
 
 # Instrucciones para instalar
 
-- Si se utiliza Laragon o cualquier otro web server WAMP (en Windows), copiar la carpeta "tictactoe" en el directorio
-raíz. Si se utiliza un stack LAMP (en Linux), copiar el directorio en el directorio /var/www/.
+- Si se utiliza Laragon o cualquier otro web server WAMP (en Windows), copiar la carpeta "tictactoetest" en el directorio
+raíz. Si se utiliza un stack LAMP (en Linux), copiarla en el directorio /var/www/.
 - Correr el dump create_db.sql en el administrador de base de datos (PHPMyAdmin, HeidiSQL, etc) para crear la base de datos.
 - Correr el dump create_user.sql para crear el usuario y sus permisos para conectar la aplicación.
 - Configurar el web server para correr en localhost con la url deseada.
