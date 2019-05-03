@@ -10,8 +10,8 @@ class DbConn
 {
     private $host = "localhost";
     private $post = "8089";
-    private $user = "user";
-    private $password = "password";
+    private $user = "tictactoe";
+    private $password = "1234";
     private $db = "tictactoe";
     private $charset = "utf8mb4";
 
