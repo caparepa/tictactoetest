@@ -84,6 +84,21 @@ $(document).ready(function () {
         });
     }
 
+    function updateGame() {
+        $.ajax({
+            type: "POST",
+            url: "update_match.php",
+            dataType: ' json',
+            data: $("form").serialize(),
+            success: function (data) {
+                console.log("success", data)
+            },
+            error: function (error) {
+                console.log("error", error)
+            }
+        });
+    }
+
     function clearBoard() {
         //CELDAS
         $("#p_a1").text("");
@@ -96,7 +111,7 @@ $(document).ready(function () {
         $("#p_b3").text("");
         $("#p_c3").text("");
         $("#current_player").text("X");
-        $("#current_round").text("0");
+        $("#current_round").text("1");
 
         //FORMULARIO
         $('input[name="cell_a1"]').val('');
@@ -108,9 +123,10 @@ $(document).ready(function () {
         $('input[name="cell_a3"]').val('');
         $('input[name="cell_b3"]').val('');
         $('input[name="cell_c3"]').val('');
-        $('input[name="match_round"]').val(0);
+        $('input[name="match_round"]').val(1);
         $('input[name="match_status"]').val("IN_PROGRESS");
         $('input[name="match_winner"]').val("N");
+        $('input[name="current_player"]').val("X");
     }
 
 });

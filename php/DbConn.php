@@ -58,6 +58,21 @@ class DbConn
         return 'INSERT INTO `' . $table . '` ' . $columns . ' VALUES ' . $values . ';';
     }
 
+    public function buildUpdateQueryById($table, $id, $data)
+    {
+        $setValueStr = '';
+
+        foreach ($data as $key => $value) {
+            $setValueStr .= '`' . $key . '` = \'' . $value . '\',';
+        }
+
+        $setValues = substr($setValueStr, 0, -1) . ',';
+
+        $query = 'UPDATE `'.$table.'` SET '.$setValueStr.'WHERE id = '.$id;
+
+        return $query;
+    }
+
     public function getConnection()
     {
         return $this->pdo;
@@ -72,15 +87,25 @@ class DbConn
             $id = $this->pdo->lastInsertId();
             $this->pdo->commit();
             return $id;
-        }catch(Exception $e) {
+        } catch (Exception $e) {
             $this->pdo->rollback();
             return null;
         }
     }
 
-    public function update($stmt, $data)
+    public function execute($query)
     {
-
+        try {
+            $stmt = $this->pdo->prepare($query);
+            $this->pdo->beginTransaction();
+            $stmt->execute();
+            $id = $this->pdo->lastInsertId();
+            $this->pdo->commit();
+            return $id;
+        }catch (Exception $e){
+            $this->pdo->rollback();
+            return null;
+        }
     }
 
     public function read($stmt)

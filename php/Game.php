@@ -60,6 +60,7 @@ class Game
             $data["match_round"] = $_POST['match_round'];
             $data["match_status"] = $_POST['match_status'];
             $data["match_winner"] = $_POST['match_winner'];
+            $data["current_player"] = $_POST['current_player'];
             $data["cell_a1"] = $_POST['cell_a1'];
             $data["cell_a2"] = $_POST['cell_a2'];
             $data["cell_a3"] = $_POST['cell_a3'];
@@ -91,8 +92,34 @@ class Game
 
         $method = $_SERVER['REQUEST_METHOD'];
 
-        if($method === 'PUT') {
+        if($method === 'POST') {
+            $data = [];
+            $data["match_round"] = $_POST['match_round'];
+            $data["match_status"] = $_POST['match_status'];
+            $data["match_winner"] = $_POST['match_winner'];
+            $data["current_player"] = $_POST['current_player'];
+            $data["cell_a1"] = $_POST['cell_a1'];
+            $data["cell_a2"] = $_POST['cell_a2'];
+            $data["cell_a3"] = $_POST['cell_a3'];
+            $data["cell_b1"] = $_POST['cell_b1'];
+            $data["cell_b2"] = $_POST['cell_b2'];
+            $data["cell_b3"] = $_POST['cell_b3'];
+            $data["cell_c1"] = $_POST['cell_c1'];
+            $data["cell_c2"] = $_POST['cell_c2'];
+            $data["cell_c3"] = $_POST['cell_c3'];
 
+            $match =  $this->match->updateMatch($_POST['match_id'],$data);
+
+            //TODO: validate whether match is empty/null or not!
+            if($match !== null){
+                http_response_code(200);
+                $response = (array)$match;
+            }else{
+                $response = "NO_RESULT";
+                http_response_code(500);
+            }
+
+            return json_encode($response);
         }
 
     }

@@ -27,6 +27,7 @@ class Match
         $match->match_round = $result['match_round'];
         $match->match_status = $result['match_status'];
         $match->match_winner = $result['match_winner'];
+        $match->current_player = $result['current_player'];
         $match->cell_a1 = $result['cell_a1'];
         $match->cell_a2 = $result['cell_a2'];
         $match->cell_a3 = $result['cell_a3'];
@@ -71,8 +72,13 @@ class Match
         return false;
     }
 
-    public function updateMatch($id, $stdObj) {
-
+    public function updateMatch($matchId, $data) {
+        $query = $this->conn->buildUpdateQueryById("match", $matchId, $data);
+        $result = $this->conn->execute($query);
+        if($result !== null){
+            return $this->getMatchById($result);
+        }
+        return $result;
     }
 
     public function saveMatch($data) {
