@@ -84,7 +84,7 @@ class TicTacToe
 
         foreach ($this->victory_conditions as $vc) {
             if ($vc === array_intersect($vc, $player_occupied_spaces)) {
-                $this->winner = $this->players[$playerPiece];
+                $this->winner = $playerPiece;
                 $this->status = 'FINISH';
             }
         }
