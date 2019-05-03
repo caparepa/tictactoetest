@@ -1,99 +1,105 @@
 $(document).ready(function () {
-    function clickCell(cellContent, cellVal) {
-        cellVal.val(cellContent);
-        console.log(jQuery.trim(cellContent),cellVal.val());
-        //updateGame();
-    }
+
+    getLatestMatch();
 
     $("#td_a1").on('click', function () {
 
-        if($('input[name="cell_a1"]').val() === ''){
+        if($("#p_a1").text() === ''){
 
             var player = $('input[name="current_player"]').val();
-            $("#td_a1").text(player)
+            $("#p_a1").text(player)
             $('input[name="cell_a1"]').val(player);
             //llamar al api aqui
+            updateGame();
         }
 
     });
 
     $("#td_a2").on('click', function () {
-        if($('input[name="cell_a2"]').val() === ''){
+        if($("#p_a2").text() === ''){
 
             var player = $('input[name="current_player"]').val();
-            $("#td_a2").text(player)
+            $("#p_a2").text(player)
             $('input[name="cell_a2"]').val(player);
             //llamar al api aqui
+            updateGame();
         }
     });
 
     $("#td_a3").on('click', function () {
-        if($('input[name="cell_a3"]').val() === ''){
+        if($("#p_a3").text() === ''){
 
             var player = $('input[name="current_player"]').val();
-            $("#td_a3").text(player)
+            $("#p_a3").text(player)
             $('input[name="cell_a3"]').val(player);
             //llamar al api aqui
+            updateGame();
         }
     });
 
     $("#td_b1").on('click', function () {
-        if($('input[name="cell_b1"]').val() === ''){
+        if($("#p_b1").text() === ''){
 
             var player = $('input[name="current_player"]').val();
-            $("#td_b1").text(player)
+            $("#p_b1").text(player)
             $('input[name="cell_b1"]').val(player);
             //llamar al api aqui
+            updateGame();
         }
     });
 
     $("#td_b2").on('click', function () {
-        if($('input[name="cell_b2"]').val() === ''){
+        if($("#p_b2").text() === ''){
 
             var player = $('input[name="current_player"]').val();
-            $("#td_b2").text(player)
+            $("#p_b2").text(player)
             $('input[name="cell_b2"]').val(player);
             //llamar al api aqui
+            updateGame();
         }
     });
 
     $("#td_b3").on('click', function () {
-        if($('input[name="cell_b3"]').val() === ''){
+        if($("#p_b3").text() === ''){
 
             var player = $('input[name="current_player"]').val();
-            $("#td_b3").text(player)
+            $("#p_b3").text(player)
             $('input[name="cell_b3"]').val(player);
             //llamar al api aqui
+            updateGame();
         }
     });
 
     $("#td_c1").on('click', function () {
-        if($('input[name="cell_c1"]').val() === ''){
+        if($("#p_c1").text() === ''){
 
             var player = $('input[name="current_player"]').val();
-            $("#td_c1").text(player)
+            $("#p_c1").text(player)
             $('input[name="cell_c1"]').val(player);
             //llamar al api aqui
+            updateGame();
         }
     });
 
     $("#td_c2").on('click', function () {
-        if($('input[name="cell_c2"]').val() === ''){
+        if($("#p_c2").text() === ''){
 
             var player = $('input[name="current_player"]').val();
-            $("#td_c2").text(player)
+            $("#p_c2").text(player)
             $('input[name="cell_c2"]').val(player);
             //llamar al api aqui
+            updateGame();
         }
     });
 
     $("#td_c3").on('click', function () {
-        if($('input[name="cell_c3"]').val() === ''){
+        if($("#p_c3").text() === ''){
 
             var player = $('input[name="current_player"]').val();
-            $("#td_c3").text(player)
+            $("#p_c3").text(player)
             $('input[name="cell_c3"]').val(player);
             //llamar al api aqui
+            updateGame();
         }
     });
 
@@ -169,13 +175,14 @@ $(document).ready(function () {
                 }
             },
             error: function (error) {
-                console.log("error", error)
+                console.log("error", error.responseText)
             }
         });
     }
 
     function updateGame() {
-        $.ajax({
+        console.log("DATA",$("form").serialize());
+        /*$.ajax({
             type: "POST",
             url: "update_match.php",
             dataType: ' json',
@@ -191,9 +198,9 @@ $(document).ready(function () {
                 console.log("success", data)
             },
             error: function (error) {
-                console.log("error", error)
+                console.log("error_", error.responseText)
             }
-        });
+        });*/
     }
 
     function clearBoard() {

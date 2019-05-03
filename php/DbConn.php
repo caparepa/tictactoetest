@@ -10,8 +10,8 @@ class DbConn
 {
     private $host = "localhost";
     private $post = "8089";
-    private $user = "root";
-    private $password = "";
+    private $user = "user";
+    private $password = "password";
     private $db = "tictactoe";
     private $charset = "utf8mb4";
 
@@ -66,7 +66,7 @@ class DbConn
             $setValueStr .= '`' . $key . '` = \'' . $value . '\',';
         }
 
-        $setValues = substr($setValueStr, 0, -1) . ',';
+        $setValues = substr($setValueStr, 0, -1);
 
         $query = 'UPDATE `'.$table.'` SET '.$setValueStr.'WHERE id = '.$id;
 
@@ -81,6 +81,7 @@ class DbConn
     public function insert($query)
     {
         try {
+            //echo $query;
             $stmt = $this->pdo->prepare($query);
             $this->pdo->beginTransaction();
             $stmt->execute();

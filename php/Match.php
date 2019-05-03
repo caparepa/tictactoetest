@@ -74,6 +74,7 @@ class Match
 
     public function updateMatch($matchId, $data) {
         $query = $this->conn->buildUpdateQueryById("match", $matchId, $data);
+        echo $query;
         $result = $this->conn->execute($query);
         if($result !== null){
             return $this->getMatchById($result);

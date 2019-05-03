@@ -7,4 +7,5 @@
  */
 require_once 'php/Game.php';
 $game = new Game();
+echo $game->updateMatch();
 
